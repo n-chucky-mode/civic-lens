@@ -18,7 +18,7 @@
  <meta property="og:url" content="https://example.com/">
 
 <!-- ADD link to stylesheet -->
-<!-- ADDED BY ME (Batch 1): linked my CSS file so styles actually load -->
+<!-- ADDED BY ME: linked my CSS file so styles actually load -->
   <link rel="stylesheet" href="styles.css">
 
   <title>Civic Lens</title>
@@ -29,26 +29,35 @@
 <!-- added by me: skip link required-->
 <a id="skip" href="#main-content">Skip to Main Content</a>
 
+    <!-- ADDED BY ME: header wrapper so this is semantic and matches mockup-->
+    <header class="site-header">
+    <!-- ADDED BY ME: kept your button exaclty but added it in header where it belongs?? -->   
     <button id="theme-toggle" aria-label="Toggle light/dark mode">
       <svg width="35px" height="35px" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <defs><clipPath id="a"><path d="m18.512 18.512h62.977v62.977h-62.977z"/></clipPath></defs>
         <g clip-path="url(#a)"><path d="m65.098 68.164c-9.2812 7.7266-23.09 7.2422-31.797-1.4648-8.707-8.7031-9.1953-22.516-1.4648-31.793 0.74609-0.89844 2.1016-0.96875 2.9258-0.14453l30.473 30.477c0.82422 0.82422 0.75391 2.1797-0.13672 2.9258m7.168-40.43c-12.297-12.297-32.234-12.297-44.531 0-12.297 12.301-12.297 32.234 0 44.531s32.234 12.297 44.531 0 12.297-32.23 0-44.531" fill="#333" fill-rule="evenodd"/></g>
       </svg>
     </button>
-
-      Civic Lens
+      <!-- ADDED BY ME: h1 + tagline so my heading structure matches the rubric outline -->
+      <h1 class="site-title">Civic Lens</h1>
       <p class="tagline">See Clearly. Know Deeply. Act Justly.</p>
-      
-      <nav class="mobile-nav" aria-label="Mobile Navigation">
-        <input type="checkbox" id="menu-toggle" hidden>
-        <label for="menu-toggle" class="menu-button">Menu</label>
-        <ul class="menu">
-          <li><a href="#breaking-news">Breaking News</a></li>
-          <li><a href="#featured-aticles">Featured Articles</a></li>
-          <li><a href="#alerts">Alerts</a></li>
-          <li><a href="#social">Social</a></li>
-        </ul>
-      </nav>
+
+      <!-- ADDED BY ME (Batch 1): desktop nav magtches med/large mockups -->
+      <nav class="primary-nav" aria-label="Primary Navigation">
+      <ul>
+        <li><a href="#breaking-news">Breaking News</a></li>
+        <li><a href="#featured-articles">Featured Articles</a></li>
+        <li><a href="#alerts">Alerts</a></li>
+        <li><a href="#social">Social</a></li>
+      </ul>
+    </nav>
+
+    <nav class="mobile-nav" aria-label="Mobile Navigation">
+      <input type="checkbox" id="menu-toggle" hidden>
+      <label for="menu-toggle" class="menu-button">Menu</label>
+      <ul class="menu">
+        <li><a href="#breaking-news">Breaking News</a></li> <!--******break time remember u stopped here-->
+
       
       Welcome to Civic Lens
         We are an independent news organization dedicated to unbiased reporting, investigative journalism, and truth-driven storytelling. At Civic Lens, our mission is to expose the facts, amplify marginalized voices, and shine light on the systems that shape our society.</p>

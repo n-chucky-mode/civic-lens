@@ -183,11 +183,32 @@
           </article>
         </div>
       </section>
+      
+
+      <!-- ADDED BY ME: placeholders for sections that nav links point to -->
+      <section id="alerts" aria-labelledby="alerts-heading">
+        <h2 id="alerts-heading">Alerts</h2>
+        <!-- NOTE FOR ME: This is a placeholder section so the nav link doesn’t go nowhere -->
+        <p>Updates and urgent headlines will appear here.</p>
+      </section>
+
+      <section id="social" aria-labelledby="social-heading">
+        <h2 id="social-heading">Social</h2>
+        <!-- NOTE FOR ME: This is a placeholder section so the nav link doesn’t go nowhere -->
+        <p>Follow Civic Lens updates across platforms.</p>
+      </section>
+      <!--All new ******************************** above-->
         
-        
-      Stay Informed. Stay Empowered.
-        Receive text messages with the news you want to know.
-        
+      <!-- ADDED BY ME: Form section placeholder (will make it fully accessible) -->
+      <section id="subscribe" aria-labelledby="subscribe-heading">
+        <h2 id="subscribe-heading">Stay Informed. Stay Empowered.</h2>
+        <p>Receive text messages with the news you want to know.</p>
+
+         <!-- NOTE FOR ME: I’m leaving the actual form ill be back to this so i can do labels/ids cleanly -->
+      </section>
+    </article>
+  </main>
+
         Name
         
         Mobile
@@ -204,16 +225,20 @@
         
         Subscribe
       
-      Follow Us
-        Twitter/X
-        Instagram
-        YouTube
-        TikTok
-        LinkedIn
-        
-        &copy; 2025 Civic Lens. All rights reserved.
-        
-        
+      
+    <!-- NOTE FOR ME: These will get styled like buttons to match the mockups in CSS batches -->
+    <ul class="social-links">
+      <li><a href="#">Twitter/X</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">YouTube</a></li>
+      <li><a href="#">TikTok</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+
+    <p>&copy; 2025 Civic Lens. All rights reserved.</p>
+  </footer>
+
+              
   <script>
     const toggleButton = document.getElementById('theme-toggle');
   
@@ -229,8 +254,10 @@
         body.classList.add('dark-mode');
       } else {
         // No class set yet, determine system preference
+         // CHANGED BY ME (Batch 1): fixed the logic so prefers dark -> dark-mode (it was flipped before)
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        body.classList.add(prefersDark ? 'light-mode' : 'dark-mode');
+        body.classList.add(prefersDark ? 'dark-mode' : 'light-mode');
+
       }
     });
   </script>

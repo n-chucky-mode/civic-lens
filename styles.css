@@ -393,6 +393,19 @@ p {
   .subscribe-btn {
     width: auto;
   }
+     /* ADDED BY ME: nav buttons look more like the mockup “row of buttons” */
+  .primary-nav ul {
+    flex-wrap: wrap; /* ADDED BY ME: prevents overflow and keeps buttons neat */
+  }
+
+  .primary-nav a:hover,
+  .menu a:hover,
+  .social-links a:hover,
+  .subscribe-btn:hover {
+    transform: translateY(-2px); /* ADDED BY ME: tiny lift effect */
+  }
+
+
 }
 
 /* ///ADD/// large styles 920px */
@@ -473,6 +486,12 @@ p {
     transition: none !important; /* ADDED BY ME: removes animations/transitions */
     animation: none !important;  /* ADDED BY ME: removes animations */
   }
+   .primary-nav a:hover,
+  .menu a:hover,
+  .social-links a:hover,
+  .subscribe-btn:hover {
+    transform: none; /* ADDED BY ME: no motion when user prefers reduced motion */
+
 }
 
 /* menu fallback so the checkbox toggle works even without :has() support */

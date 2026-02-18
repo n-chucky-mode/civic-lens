@@ -420,7 +420,65 @@ p {
 }
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
-/* ADDED BY ME (Batch 3): leaving this for later*/
+/* ADDED BY ME: leaving this for later*/
+/* menu fallback so the checkbox toggle works even without :has() support */
+#menu-toggle:checked ~ .menu {
+  display: block; /* ADDED BY ME: this makes the menu open when the checkbox is checked */
+}
+
+
+/* ADDED BY ME: system preference support WITHOUT fighting my manual light/dark classes */
+/* NOTE FOR ME: this only applies if I have NOT clicked the toggle yet (no .light-mode or .dark-mode class) */
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode):not(.dark-mode) {
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+
+  /* ADDED BY ME: dark “surface” styling so cards don’t glow white in dark mode */
+  body:not(.light-mode):not(.dark-mode) .breaking-story,
+  body:not(.light-mode):not(.dark-mode) .featured-card,
+  body:not(.light-mode):not(.dark-mode) .subscribe-form {
+    background: #222; /* ADDED BY ME: dark card surface */
+    color: var(--watchdog-white);
+    border: 1px solid rgba(241, 250, 238, 0.2); /* ADDED BY ME: subtle edge so cards are readable */
+  }
+
+  body:not(.light-mode):not(.dark-mode) .featured-card a {
+    color: var(--watchdog-white); /* ADDED BY ME: keeps links readable on dark surfaces */
+  }
+
+  body:not(.light-mode):not(.dark-mode) input[type="text"],
+  body:not(.light-mode):not(.dark-mode) input[type="tel"] {
+    background: #111; /* ADDED BY ME: darker input background */
+    color: var(--watchdog-white);
+    border: 1px solid rgba(241, 250, 238, 0.35);
+  }
+
+  body:not(.light-mode):not(.dark-mode) #theme-toggle {
+    background-color: #222; /* ADDED BY ME: keeps the toggle visible */
+    border: 1px solid rgba(241, 250, 238, 0.35);
+  }
+}
+
+/* ADDED BY ME: reduced motion support (rubric requirement) */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto; /* ADDED BY ME: disables smooth scrolling when motion is reduced */
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important; /* ADDED BY ME: removes animations/transitions */
+    animation: none !important;  /* ADDED BY ME: removes animations */
+  }
+}
+
+/* menu fallback so the checkbox toggle works even without :has() support */
+#menu-toggle:checked ~ .menu {
+  display: block; /* ADDED BY ME: this makes the menu open when the checkbox is checked */
+}
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {

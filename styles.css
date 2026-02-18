@@ -1,10 +1,40 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by Gloria Garcia */
 
 /* Imported Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 /* ///ADD/// CSS Reset */
+/* ADDED BY ME: basic reset so spacing and sizing are predictable across browsers */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* ADDED BY ME: makes width math easier and more consistent */
+}
 
+html, body {
+  margin: 0; /* ADDED BY ME: removes default browser margin */
+  padding: 0; /* ADDED BY ME: removes default browser padding */
+}
+
+img, video {
+  max-width: 100%; /* ADDED BY ME: prevents media from overflowing */
+  height: auto; /* ADDED BY ME: keeps images/videos proportional */
+  display: block; /* ADDED BY ME: removes weird inline gaps */
+}
+
+ul {
+  margin: 0; /* ADDED BY ME: removes default list spacing */
+  padding: 0; /* ADDED BY ME: removes default list spacing */
+}
+
+li {
+  list-style: none; /* ADDED BY ME: removes bullets for nav/footer lists */
+}
+
+a {
+  text-decoration: none; /* ADDED BY ME: mockups look like button links, not underlined */
+  color: inherit; /* ADDED BY ME: lets us style links via parent/button styling */
+}
 
 /* Root Variables */
 :root {
@@ -36,30 +66,368 @@ body.dark-mode {
   border: 1px solid var(--blue-bulletin);
   border-radius: 1.5rem;
   cursor: pointer;
+  padding: 0.25rem 0.5rem; /* ADDED BY ME : gives the button some breathing room */
 }
 
 /* ///ADD/// Skip Link Styles */
+/* ADDED BY ME: skip link styles so it’s visible when focused (rubric requirement) */
+#skip {
+  position: absolute; /* ADDED BY ME: keeps it out of the way until needed */
+  left: -999px; /* ADDED BY ME: hides it visually */
+  top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  border-radius: 0.5rem;
+  z-index: 9999; /* ADDED BY ME: ensures it sits on top */
+}
+
+#skip:focus {
+  left: 0.75rem; /* ADDED BY ME: brings it into view when tabbed to */
+  outline: 3px solid var(--watchdog-white); /* ADDED BY ME: makes focus obvious */
+}
 
 /* ///ADD/// Navigation Styles */
+/* ADDED BY ME: header/nav styling to match mockups */
+.site-header {
+  background: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 1.5rem 1rem 1rem; /* ADDED BY ME: matches spacing vibe in mockups */
+  position: relative; /* ADDED BY ME: keeps theme toggle anchored */
+}
+
+.site-title {
+  font-family: var(--font-heading); /* ADDED BY ME: headline font */
+  font-size: 2rem; /* ADDED BY ME: strong title */
+  margin: 0; /* ADDED BY ME: reset */
+}
+
+.tagline {
+  margin: 0.5rem 0 1rem; /* ADDED BY ME: spacing below title */
+  font-family: var(--font-body);
+  font-style: italic; /* ADDED BY ME: mockups feel like a quote/tagline */
+  opacity: 0.95;
+}
+
+/* ADDED BY ME : desktop nav exists but we’ll hide it on small screens for now */
+.primary-nav {
+  display: none; /* ADDED BY ME: mobile-first layout */
+}
+
+.primary-nav ul {
+  display: flex; /* ADDED BY ME: horizontal buttons on bigger screens later */
+  gap: 0.75rem;
+}
+
+/* ADDED BY ME: “button link” look for nav items */
+.primary-nav a {
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+/* Mobile nav (MENU toggle) */
+.mobile-nav {
+  margin-top: 1rem; /* ADDED BY ME: pushes it away from tagline */
+}
+
+.menu-button {
+  display: inline-block; /* ADDED BY ME: makes it button-like */
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+/* ADDED BY ME: menu is hidden until toggled */
+.menu {
+  display: none;
+  margin-top: 0.75rem;
+  background: rgba(241, 250, 238, 0.08); /* ADDED BY ME: subtle panel */
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.menu a {
+  display: block; /* ADDED BY ME: stacked links */
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  margin-bottom: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.menu li:last-child a {
+  margin-bottom: 0; /* ADDED BY ME: removes extra gap at the bottom */
+}
 
 /* ///ADD/// Global Layout Styles */
+/* ADDED BY ME : page content spacing and max width so it doesn’t stretch forever */
+main {
+  padding: 1.25rem 1rem; /* ADDED BY ME: overall page padding */
+}
+
+main > article {
+  max-width: 1050px; /* ADDED BY ME: keeps content readable on large screens */
+  margin: 0 auto; /* ADDED BY ME: centers the content */
+}
+
+section {
+  margin-bottom: 2rem; /* ADDED BY ME: spacing between sections */
+}
+
+/* Breaking News cards */
+.breaking-story {
+  background: var(--watchdog-white);
+  color: var(--truth-text);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  margin-top: 1rem; /* ADDED BY ME: space between stories */
+}
+
+.breaking-story h3 {
+  margin-top: 0;
+}
+
+/* ADDED BY ME: videos look like the mockup (contained + rounded) */
+.breaking-story video {
+  margin-top: 0.75rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* Featured grid */
+.featured-grid {
+  display: grid; /* ADDED BY ME: grid makes responsive layout easy */
+  grid-template-columns: 1fr; /* ADDED BY ME: mobile first */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.featured-card {
+  background: var(--watchdog-white);
+  color: var(--truth-text);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.featured-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* ADDED BY ME: link styling inside cards */
+.featured-card a {
+  color: var(--blue-bulletin);
+  text-decoration: underline; /* ADDED BY ME: makes it obvious it’s clickable */
+}
+
+/* Form layout */
+.subscribe-form {
+  background: var(--watchdog-white);
+  color: var(--truth-text);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  margin-top: 1rem;
+}
+
+.form-row {
+  display: grid; /* ADDED BY ME: label above input on mobile */
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600; /* ADDED BY ME: makes labels readable */
+}
+
+input[type="text"],
+input[type="tel"] {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--story-subtitle);
+  font-family: var(--font-body);
+}
+
+/* Checkbox group */
+.form-fieldset {
+  border: 2px solid var(--story-subtitle);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+legend {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 0 0.5rem;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* ADDED BY ME: mobile first */
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Subscribe button */
+.subscribe-btn {
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.9rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  width: 100%; /* ADDED BY ME: full width on mobile like mockup */
+}
+
+/* Footer */
+.site-footer {
+  background: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 2rem 1rem;
+}
+
+.site-footer h2 {
+  margin-top: 0;
+  font-family: var(--font-heading);
+}
+
+/* ADDED BY ME: footer buttons stacked on mobile */
+.social-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.social-links a {
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 0.85rem 1rem;
+  border-radius: 0.5rem;
+  display: block;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
 
 /* ///ADD/// Global Text Styles */
+/* ADDED BY ME: typography defaults */
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
 
+h2, h3 {
+  font-family: var(--font-heading);
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin: 0 0 0.75rem;
+}
+
+p {
+  margin: 0.5rem 0 0;
+}
 
 /* ///ADD/// medium styles 620px */
+/* ADDED BY ME: keeping this minimal for now — */
+@media (min-width: 620px) {
+  /* ADDED BY ME: show desktop nav and hide mobile nav starting at medium */
+  .primary-nav {
+    display: block;
+    margin-top: 1rem;
+  }
 
+  .mobile-nav {
+    display: none;
+  }
+
+  /* ADDED BY ME: breaking news cards side by side at medium */
+  #breaking-news {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* ADDED BY ME: keep the section title spanning both columns */
+  #breaking-news > h2 {
+    grid-column: 1 / -1;
+  }
+
+  /* ADDED BY ME: featured grid becomes 2 columns at medium */
+  .featured-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ADDED BY ME: checkbox list becomes 2 columns */
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ADDED BY ME: footer buttons become 2 columns */
+  .social-links {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ADDED BY ME: subscribe button doesn’t have to be full width anymore */
+  .subscribe-btn {
+    width: auto;
+  }
+}
 
 /* ///ADD/// large styles 920px */
+/* ADDED BY ME : light layout scaling — come back to this */
+@media (min-width: 920px) {
+  .site-title {
+    font-size: 2.5rem; /* ADDED BY ME: bigger title on large screens */
+  }
 
+  .featured-grid {
+    grid-template-columns: repeat(3, 1fr); /* ADDED BY ME: 3 column featured layout like mockups */
+  }
+
+  .social-links {
+    grid-template-columns: repeat(3, 1fr); /* ADDED BY ME: more button columns on large screens */
+  }
+}
 
 /* ///ADD/// x-large styles 1024px */
-
+/* ADDED BY ME : placeholder for polish sizing if needed */
+@media (min-width: 1024px) {
+  main {
+    padding: 2rem 1rem; /* ADDED BY ME: more breathing room on wide screens */
+  }
+}
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
-
+/* ADDED BY ME (Batch 3): leaving this for later*/
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-
+  /* ADDED BY ME : this is the clean :has() menu behavior the rubric wants */
+  header:has(#menu-toggle:checked) .menu {
+    display: block;
+  }
 }
+
+

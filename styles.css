@@ -505,6 +505,184 @@ p {
   header:has(#menu-toggle:checked) .menu {
     display: block;
   }
+
 }
+
+
+/* ADDED BY ME: mockup-perfect polish overrides */
+
+
+/* ADDED BY ME: default to light mockup if no class is set yet */
+body {
+  background: var(--watchdog-white);
+  color: var(--truth-text);
+}
+
+/* ADDED BY ME: section headings look closer to mockups */
+h2 {
+  font-size: 2rem;
+  margin: 0 0 0.75rem;
+}
+
+
+/* HEADER + NAV (match mockups) */
+
+
+/* ADDED BY ME: mobile MENU button should be a full-width bar */
+.menu-button {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ADDED BY ME: desktop nav buttons match the mockup look */
+.primary-nav a {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+
+/* BREAKING NEWS (red cards, white text) */
+
+
+.breaking-story {
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  border-radius: 0.25rem; /* ADDED BY ME: mockups have squarer corners than our earlier cards */
+  border: 2px solid rgba(0,0,0,0.15);
+}
+
+.breaking-story h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.breaking-story p {
+  margin: 0 0 0.75rem;
+  color: rgba(241, 250, 238, 0.95);
+}
+
+/* ADDED BY ME: videos sit inside the card like the mockup */
+.breaking-story video {
+  width: 100%;
+  border-radius: 0;
+  border: 2px solid rgba(0,0,0,0.2);
+}
+
+
+/* FEATURED CARDS (bordered, subtle shadow, underlined titles) */
+
+
+.featured-card {
+  background: var(--watchdog-white);
+  border: 2px solid var(--story-subtitle);
+  border-radius: 0.15rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.featured-card h3 {
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--story-subtitle); /* ADDED BY ME: thin divider line like mockups */
+}
+
+.featured-card a {
+  color: var(--truth-text);
+  text-decoration: underline;
+}
+
+
+/* SUBSCRIBE FORM (red panel and dark blue button) */
+
+
+.subscribe-form {
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+  border-radius: 0.15rem;
+  border: 2px solid rgba(0,0,0,0.2);
+}
+
+/* ADDED BY ME: labels are white in mockups */
+.subscribe-form label {
+  color: var(--watchdog-white);
+}
+
+/* ADDED BY ME: inputs should be white boxes */
+.subscribe-form input[type="text"],
+.subscribe-form input[type="tel"] {
+  background: #fff;
+  color: #111;
+  border: 2px solid rgba(0,0,0,0.15);
+}
+
+/* ADDED BY ME: fieldset blends into the red panel */
+.form-fieldset {
+  border: 2px solid rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.05);
+}
+
+.form-fieldset legend {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.9rem;
+}
+
+/* ADDED BY ME: checkbox labels stay readable */
+.checkbox-item label {
+  color: var(--watchdog-white);
+}
+
+/* ADDED BY ME: SUBSCRIBE button must be dark blue bar */
+.subscribe-btn {
+  background: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 0.15rem;
+  width: 100%;
+}
+
+
+/* FOOTER buttons (row-like) */
+
+
+.social-links a {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+/* DARK MODE (match dark mockup) */
+
+
+/* ADDED BY ME: when dark-mode class is active, match mockup tones */
+body.dark-mode {
+  background: #3b3b3b; /* ADDED BY ME: closer to the dark mockup background */
+  color: var(--watchdog-white);
+}
+
+/* ADDED BY ME: featured cards become dark panels with blue border */
+body.dark-mode .featured-card {
+  background: #2f2f2f;
+  color: var(--watchdog-white);
+  border: 2px solid var(--story-subtitle);
+}
+
+body.dark-mode .featured-card a {
+  color: var(--watchdog-white);
+}
+
+/* ADDED BY ME: keep the subscribe form red even in dark mode (mockup does this) */
+body.dark-mode .subscribe-form {
+  background: var(--news-flash);
+  color: var(--watchdog-white);
+}
+
+
+
 
 

@@ -200,16 +200,63 @@
       </section>
       <!--All new ******************************** above-->
         
-      <!-- ADDED BY ME: Form section placeholder (will make it fully accessible) -->
+      <!-- *************ADDED BY ME: Form section placeholder (will make it fully accessible)********************* -->
       <section id="subscribe" aria-labelledby="subscribe-heading">
-        <h2 id="subscribe-heading">Stay Informed. Stay Empowered.</h2>
-        <p>Receive text messages with the news you want to know.</p>
+        <!-- ADDED BY ME : fieldset and legend makes checkbox group accessible -->
+      <fieldset class="form-fieldset">
+      <legend>Notification Preferences</legend>
+
+      <!-- ADDED BY ME: every checkbox has its own label tied to its id -->
+        <div class="checkbox-grid">
+        <div class="checkbox-item">
+          <input type="checkbox" id="pref-breaking" name="pref-breaking" value="Breaking News">
+          <label for="pref-breaking">Breaking News</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="pref-politics" name="pref-politics" value="Politics">
+          <label for="pref-politics">Politics</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="pref-weather" name="pref-weather" value="Weather">
+          <label for="pref-weather">Weather</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="pref-sports" name="pref-sports" value="Sports">
+          <label for="pref-sports">Sports</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="pref-entertainment" name="pref-entertainment" value="Entertainment">
+          <label for="pref-entertainment">Entertainment</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="pref-world" name="pref-world" value="World">
+          <label for="pref-world">World</label>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="pref-financial" name="pref-financial" value="Financial">
+          <label for="pref-financial">Financial</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- ADDED BY ME: real submit button -->
+    <button type="submit" class="subscribe-btn">Subscribe</button>
+  </form>
+  </section>
+
+
 
          <!-- NOTE FOR ME: I’m leaving the actual form ill be back to this so i can do labels/ids cleanly -->
       </section>
     </article>
   
-
+      <!--<ul class- social-links>
         Name
         
         Mobile
@@ -224,7 +271,7 @@
         World
         Financial
         
-        Subscribe
+        Subscribe  come back to this ***********************--> 
       </main>
 
       <!-- ADDED BY ME (Batch 1): footer is required semantic structure -->
